@@ -6,19 +6,29 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_small"
-        android:text="Last update : 23/12/2560"/>
+        android:background="@android:color/black"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_small">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/darker_gray"
-        android:text="Add more exchange rate" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Last update : "
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/text_exchange_list_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            tools:text="23/12/2560" />
+    </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycle_exchange_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layoutManager="android.support.v7.widget.GridLayoutManager"
