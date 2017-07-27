@@ -1,4 +1,8 @@
+plugins {
+    id "org.sonarqube" version "2.3"
+}
 apply plugin: 'com.android.application'
+apply from: '../jacoco.gradle'
 
 android {
     compileSdkVersion 25
@@ -13,8 +17,45 @@ android {
     }
     buildTypes {
         release {
+//            shrinkResources true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+//            testCoverageEnabled true
+        }
+    }
+    productFlavors {
+        mock {
+            resConfigs "en","th","xhdpi"
+        }
+        prod {
+        }
+    }
+
+    // Remove mockRelease as it's not needed.
+    android.variantFilter { variant ->
+        if (variant.buildType.name.equals('release')
+                && variant.getFlavors().get(0).name.contains('mock')) {
+            variant.setIgnore(true);
+        }
+    }
+
+    if(project.hasProperty('devBuild')){
+        splits.abi.enable = false
+        splits.density.enable = false
+        aaptOptions.cruncherEnabled = false
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+        unitTests.all {
+            testLogging {
+                events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+            }
+            jacoco {
+                includeNoLocationClasses = true
+            }
         }
     }
 }
@@ -31,6 +72,28 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
 
+    compile 'com.squareup.retrofit2:retrofit:2.2.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.2.0'
+    compile 'org.parceler:parceler-api:1.1.6'
+    annotationProcessor 'org.parceler:parceler:1.1.6'
+
+    compile 'com.pong.library:mvp-structure:1.0.0@aar'
 
     testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-android:2.7.22'
+}
+
+// run jacoco       -> ./gradlew jacocoTestReport
+// run sonarQube    -> ./gradlew sonarqube
+
+sonarqube {
+    properties {
+        property "sonar.projectName", "MoneyRate"
+        property "sonar.projectKey", "com.pong.moneyrate"
+        property "sonar.sources", "src/main"
+
+        property "sonar.tests", "src/test"
+        property "sonar.java.binaries", "build/intermediates/classes/mock/debug"
+        property "sonar.jacoco.reportPaths","build/jacoco/testMockDebugUnitTest.exec"
+    }
 }
