@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_small"
+        android:text="Last update : 23/12/2560"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,7 +21,7 @@
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/exchange_rate_row"
-        app:layoutManager="android.support.v7.widget.GridLayoutManager" />
+        app:layoutManager="android.support.v7.widget.GridLayoutManager"
+        tools:listitem="@layout/exchange_rate_row" />
 
 </LinearLayout>
