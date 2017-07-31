@@ -1,4 +1,4 @@
-package com.pong.moneyrate.feature.list;
+package com.pong.moneyrate.feature.exchange.list;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,13 +6,12 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.excelbkk.pong.multilayout.MultiLayout;
 import com.pong.moneyrate.R;
 import com.pong.moneyrate.base.BaseFragment;
 import com.pong.moneyrate.custom.CustomSwipeRefreshLayout;
-import com.pong.moneyrate.feature.list.adapter.ExchangeAdapter;
+import com.pong.moneyrate.feature.exchange.list.adapter.ExchangeAdapter;
 import com.pong.moneyrate.model.ExchangeDetail;
 
 import java.util.List;
@@ -26,6 +25,10 @@ import butterknife.BindView;
 public class ExchangeListFragment
         extends BaseFragment<ExchangeListContract.Presenter>
         implements ExchangeListContract.View {
+
+    public interface OnExchangeListFragmentListener {
+        void navigateToExchangeDetailPage(ExchangeDetail model);
+    }
 
     @BindView(R.id.text_exchange_list_date)
     TextView mTextExchangeListDate;
@@ -115,6 +118,6 @@ public class ExchangeListFragment
 
     @Override
     public void navigateToExchangeDetailPage(ExchangeDetail detail) {
-        Toast.makeText(getActivity(), detail.getCurrencyNameEng(), Toast.LENGTH_SHORT).show();
+        ((OnExchangeListFragmentListener) getActivity()).navigateToExchangeDetailPage(detail);
     }
 }

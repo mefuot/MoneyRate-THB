@@ -1,14 +1,15 @@
-package com.pong.moneyrate.feature;
+package com.pong.moneyrate.feature.exchange;
 
 import com.pong.moneyrate.R;
 import com.pong.moneyrate.base.BaseActivity;
-import com.pong.moneyrate.feature.list.ExchangeListFragment;
+import com.pong.moneyrate.feature.exchange.list.ExchangeListFragment;
+import com.pong.moneyrate.model.ExchangeDetail;
 
 /**
  * Created by User on 31/7/2560.
  */
 
-public class ExchangeActivity extends BaseActivity {
+public class ExchangeActivity extends BaseActivity implements ExchangeListFragment.OnExchangeListFragmentListener {
     @Override
     protected int getLayout() {
         return R.layout.activity_main;
@@ -24,5 +25,10 @@ public class ExchangeActivity extends BaseActivity {
         }
 
         attachFragment(fragment);
+    }
+
+    @Override
+    public void navigateToExchangeDetailPage(ExchangeDetail model) {
+
     }
 }

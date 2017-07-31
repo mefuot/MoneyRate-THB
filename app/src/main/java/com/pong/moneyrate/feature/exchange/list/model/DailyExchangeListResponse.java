@@ -1,4 +1,4 @@
-package com.pong.moneyrate.feature.list.model;
+package com.pong.moneyrate.feature.exchange.list.model;
 
 import com.pong.moneyrate.model.ExchangeDetail;
 

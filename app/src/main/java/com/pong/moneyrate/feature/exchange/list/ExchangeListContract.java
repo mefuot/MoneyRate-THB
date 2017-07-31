@@ -1,4 +1,4 @@
-package com.pong.moneyrate.feature.list;
+package com.pong.moneyrate.feature.exchange.list;
 
 import com.pong.moneyrate.model.ExchangeDetail;
 import com.pong.mvp_structure.MvpContract;
