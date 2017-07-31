@@ -1,5 +1,6 @@
 package com.pong.moneyrate;
 
+import android.os.Handler;
 import android.support.annotation.NonNull;
 
 import com.pong.moneyrate.feature.list.model.DailyExchangeListResponse;
@@ -17,7 +18,7 @@ import java.util.List;
 
 public class MockExchangeListService implements ExchangeListService {
     @Override
-    public void loadExchangeList(String date, @NonNull OnExchangeListCallback callback) {
+    public void loadExchangeList(String date, @NonNull final OnExchangeListCallback callback) {
         ExchangeDetail usd = new ExchangeDetail();
         usd.setPeriod(DateUtils.getFormattedDate("yyyy-MM-dd", new Date()));
         usd.setCurrencyId("USD");
@@ -30,7 +31,7 @@ public class MockExchangeListService implements ExchangeListService {
 
         ExchangeDetail gbp = new ExchangeDetail();
         gbp.setPeriod(DateUtils.getFormattedDate("yyyy-MM-dd", new Date()));
-        gbp.setCurrencyId("USD");
+        gbp.setCurrencyId("GBP");
         gbp.setCurrencyNameTh("อังกฤษ : ปอนด์สเตอร์ลิง (GBP)");
         gbp.setCurrencyNameEng("UNITED KINGDOM : POUND STERING (GBP)");
         gbp.setBuyingSight("43.0688000");
@@ -50,7 +51,7 @@ public class MockExchangeListService implements ExchangeListService {
 
         ExchangeDetail jpy = new ExchangeDetail();
         jpy.setPeriod(DateUtils.getFormattedDate("yyyy-MM-dd", new Date()));
-        jpy.setCurrencyId("EUR");
+        jpy.setCurrencyId("JPY");
         jpy.setCurrencyNameTh("ญี่ปุ่น : เยน (100 เยน) (JPY)");
         jpy.setCurrencyNameEng("JAPAN : YEN (100 YEN) (JPY)");
         jpy.setBuyingSight("29.5025000");
@@ -64,8 +65,17 @@ public class MockExchangeListService implements ExchangeListService {
         list.add(eur);
         list.add(jpy);
 
+        DailyExchangeListResponse.ResultBean.DataBean.DataHeaderBean header
+                = new DailyExchangeListResponse.ResultBean.DataBean.DataHeaderBean();
+
+        header.setReport_name_eng("Rates of Exchange of Commercial Banks in Bangkok Metropolis (2002-present)");
+        header.setReport_name_th("อัตราแลกเปลี่ยนเฉลี่ยของธนาคารพาณิชย์ในกรุงเทพมหานคร (2545");
+        header.setReport_uoq_name_eng("(Unit : Baht / 1 Unit of Foreign Currency)");
+        header.setReport_uoq_name_th("(หน่วย : บาท ต่อ 1 หน่วยเงินตราต่างปร");
+
         DailyExchangeListResponse.ResultBean.DataBean data = new DailyExchangeListResponse.ResultBean.DataBean();
         data.setData_detail(list);
+        data.setData_header(header);
 
         DailyExchangeListResponse.ResultBean result = new DailyExchangeListResponse.ResultBean();
         result.setSuccess("true");
@@ -73,9 +83,16 @@ public class MockExchangeListService implements ExchangeListService {
         result.setTimestamp(DateUtils.getFormattedDate("yyyy-MM-dd HH:mm:ss", new Date()));
         result.setData(data);
 
-        DailyExchangeListResponse response = new DailyExchangeListResponse();
+        final DailyExchangeListResponse response = new DailyExchangeListResponse();
         response.setResult(result);
 
-        callback.onApiSuccess(response);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                callback.onApiSuccess(response);
+            }
+        }, 2000);
+
+//        callback.onApiSuccess(response);
     }
 }

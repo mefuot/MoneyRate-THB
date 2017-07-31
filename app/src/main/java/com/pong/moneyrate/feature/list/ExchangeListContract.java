@@ -11,7 +11,9 @@ import java.util.List;
 
 public interface ExchangeListContract extends MvpContract {
     interface View extends MvpContract.View {
-        void showCurrentDate(String date);
+        void setCurrentDate(String date);
+
+        void setExchangeInfo(String info);
 
         void showLoadingList();
 

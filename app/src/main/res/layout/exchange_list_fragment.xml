@@ -27,11 +27,44 @@
             tools:text="23/12/2560" />
     </LinearLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycle_exchange_list"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layoutManager="android.support.v7.widget.GridLayoutManager"
-        tools:listitem="@layout/exchange_rate_row" />
+        android:background="@drawable/stroke_bottom"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/text_exchange_list_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_small"
+            tools:text="exchange info" />
+    </LinearLayout>
+
+    <com.pong.moneyrate.custom.CustomSwipeRefreshLayout
+        android:id="@+id/swipe_layout_exchange_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycle_exchange_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="android.support.v7.widget.GridLayoutManager"
+                tools:listitem="@layout/exchange_rate_row" />
+
+            <com.excelbkk.pong.multilayout.MultiLayout
+                android:id="@+id/multi_layout_exchange_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/alpha_white" />
+
+        </FrameLayout>
+
+    </com.pong.moneyrate.custom.CustomSwipeRefreshLayout>
 
 </LinearLayout>

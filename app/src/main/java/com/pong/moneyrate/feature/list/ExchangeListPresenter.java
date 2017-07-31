@@ -34,14 +34,14 @@ public class ExchangeListPresenter
     @Override
     public void onViewCreated() {
         super.onViewCreated();
-        getView().showCurrentDate(DateUtils.getFormattedDate("yyyy-MM-dd", new Date()));
+        getView().setCurrentDate(DateUtils.getFormattedDate("yyyy-MM-dd", new Date()));
 
-        getView().showLoadingList();
         loadExchangeList();
     }
 
     @Override
     public void loadExchangeList() {
+        getView().showLoadingList();
         mExchangeListRepository.loadExchangeList(
                 DateUtils.getFormattedDate("yyyy-MM-dd", new Date()), this);
     }
@@ -59,6 +59,9 @@ public class ExchangeListPresenter
         } else {
             getView().showExchangeList(list);
         }
+
+        getView().setExchangeInfo(response.getResult().getData().getData_header().getReport_name_eng()
+                + "\n" + response.getResult().getData().getData_header().getReport_uoq_name_eng());
     }
 
     @Override
