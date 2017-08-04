@@ -1,4 +1,4 @@
-package com.pong.moneyrate.feature.list.adapter;
+package com.pong.moneyrate.feature.exchange.list.adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;

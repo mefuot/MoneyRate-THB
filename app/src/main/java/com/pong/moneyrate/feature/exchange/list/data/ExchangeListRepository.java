@@ -1,8 +1,8 @@
-package com.pong.moneyrate.feature.list.data;
+package com.pong.moneyrate.feature.exchange.list.data;
 
 import android.support.annotation.NonNull;
 
-import com.pong.moneyrate.feature.list.service.ExchangeListService;
+import com.pong.moneyrate.feature.exchange.list.service.ExchangeListService;
 
 /**
  * Created by User on 27/7/2560.

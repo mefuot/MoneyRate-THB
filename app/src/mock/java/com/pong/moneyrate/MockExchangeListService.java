@@ -3,8 +3,8 @@ package com.pong.moneyrate;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 
-import com.pong.moneyrate.feature.list.model.DailyExchangeListResponse;
-import com.pong.moneyrate.feature.list.service.ExchangeListService;
+import com.pong.moneyrate.feature.exchange.list.model.DailyExchangeListResponse;
+import com.pong.moneyrate.feature.exchange.list.service.ExchangeListService;
 import com.pong.moneyrate.model.ExchangeDetail;
 import com.pong.moneyrate.utils.DateUtils;
 

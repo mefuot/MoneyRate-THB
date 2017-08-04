@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/stroke_bottom"
+        android:gravity="top"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_x_small">
+
+        <ImageView
+            android:id="@+id/img_exchange_detail_flag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="@dimen/padding_x_small"
+            android:src="@android:drawable/ic_menu_myplaces" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_exchange_detail_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="UNITED KINGDOM : POUND STERING (GBP)" />
+
+            <TextView
+                android:id="@+id/text_exchange_detail_period"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/font_small"
+                tools:text="2017-07-26" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/padding_small"
+        android:layout_marginRight="@dimen/padding_small"
+        android:layout_marginTop="@dimen/padding_x_small"
+        android:background="@drawable/stroke_bottom"
+        android:gravity="top"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/padding_x_small"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Buying" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/padding_x_small">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sight : " />
+
+                <TextView
+                    android:id="@+id/text_exchange_detail_buying_sight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    tools:text="1.0000000 THB" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Transfer : " />
+
+                <TextView
+                    android:id="@+id/text_exchange_detail_buying_transfer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    tools:text="1.0000000 THB" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/padding_small"
+        android:layout_marginRight="@dimen/padding_small"
+        android:layout_marginTop="@dimen/padding_x_small"
+        android:background="@drawable/stroke_bottom"
+        android:gravity="top"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/padding_x_small">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selling" />
+
+        <TextView
+            android:id="@+id/text_exchange_detail_selling"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            tools:text="1.0000000 THB" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/padding_small"
+        android:layout_marginRight="@dimen/padding_small"
+        android:layout_marginTop="@dimen/padding_x_small"
+        android:gravity="top"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/padding_x_small">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mid Rate" />
+
+        <TextView
+            android:id="@+id/text_exchange_detail_mid_rate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            tools:text="1.0000000 THB" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.ogaclejapan.smarttablayout.SmartTabLayout
+            android:id="@+id/viewpager_tab_exchange_detail"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_alignParentBottom="true"
+            app:stl_clickable="true"
+            android:background="@color/gray"
+            app:stl_defaultTabBackground="?attr/selectableItemBackground"
+            app:stl_defaultTabTextAllCaps="true"
+            app:stl_defaultTabTextColor="@android:color/white"
+            app:stl_defaultTabTextHorizontalPadding="16dp"
+            app:stl_defaultTabTextMinWidth="0dp"
+            app:stl_defaultTabTextSize="@dimen/font_small"
+            app:stl_distributeEvenly="true"
+            app:stl_dividerColor="#4D000000"
+            app:stl_dividerThickness="1dp"
+            app:stl_drawDecorationAfterTab="false"
+            app:stl_indicatorAlwaysInCenter="false"
+            app:stl_indicatorColor="#40C4FF"
+            app:stl_indicatorCornerRadius="2dp"
+            app:stl_indicatorGravity="top"
+            app:stl_indicatorInFront="false"
+            app:stl_indicatorInterpolation="linear"
+            app:stl_indicatorThickness="4dp"
+            app:stl_indicatorWidth="auto"
+            app:stl_indicatorWithoutPadding="false"
+            app:stl_overlineColor="#4D000000"
+            app:stl_overlineThickness="0dp"
+            app:stl_titleOffset="24dp"
+            app:stl_underlineColor="#4D000000"
+            app:stl_underlineThickness="1dp" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager_exchange_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/viewpager_tab_exchange_detail" />
+
+    </RelativeLayout>
+
+</LinearLayout>

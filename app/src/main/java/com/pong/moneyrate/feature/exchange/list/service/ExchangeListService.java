@@ -1,8 +1,8 @@
-package com.pong.moneyrate.feature.list.service;
+package com.pong.moneyrate.feature.exchange.list.service;
 
 import android.support.annotation.NonNull;
 
-import com.pong.moneyrate.feature.list.model.DailyExchangeListResponse;
+import com.pong.moneyrate.feature.exchange.list.model.DailyExchangeListResponse;
 import com.pong.moneyrate.service.OnApiCallback;
 
 /**

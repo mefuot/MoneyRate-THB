@@ -1,11 +1,11 @@
-package com.pong.moneyrate.feature.list;
+package com.pong.moneyrate.feature.exchange.list;
 
 import android.support.annotation.NonNull;
 
 import com.pong.moneyrate.Injection;
-import com.pong.moneyrate.feature.list.data.ExchangeListRepository;
-import com.pong.moneyrate.feature.list.model.DailyExchangeListResponse;
-import com.pong.moneyrate.feature.list.service.ExchangeListService;
+import com.pong.moneyrate.feature.exchange.list.data.ExchangeListRepository;
+import com.pong.moneyrate.feature.exchange.list.model.DailyExchangeListResponse;
+import com.pong.moneyrate.feature.exchange.list.service.ExchangeListService;
 import com.pong.moneyrate.model.ExchangeDetail;
 import com.pong.moneyrate.utils.DateUtils;
 import com.pong.mvp_structure.MvpPresenter;

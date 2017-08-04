@@ -1,7 +1,7 @@
 package com.pong.moneyrate;
 
-import com.pong.moneyrate.feature.list.data.ExchangeListRepositories;
-import com.pong.moneyrate.feature.list.data.ExchangeListRepository;
+import com.pong.moneyrate.feature.exchange.list.data.ExchangeListRepositories;
+import com.pong.moneyrate.feature.exchange.list.data.ExchangeListRepository;
 
 /**
  * Created by User on 27/7/2560.
