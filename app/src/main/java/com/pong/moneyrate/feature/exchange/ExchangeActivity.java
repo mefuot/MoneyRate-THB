@@ -2,6 +2,7 @@ package com.pong.moneyrate.feature.exchange;
 
 import com.pong.moneyrate.R;
 import com.pong.moneyrate.base.BaseActivity;
+import com.pong.moneyrate.feature.exchange.detail.ExchangeDetailFragment;
 import com.pong.moneyrate.feature.exchange.list.ExchangeListFragment;
 import com.pong.moneyrate.model.ExchangeDetail;
 
@@ -29,6 +30,15 @@ public class ExchangeActivity extends BaseActivity implements ExchangeListFragme
 
     @Override
     public void navigateToExchangeDetailPage(ExchangeDetail model) {
+        addFragment(ExchangeDetailFragment.newInstance(model));
+    }
 
+    @Override
+    public void onBackPressed() {
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            getSupportFragmentManager().popBackStack();
+        } else {
+            super.onBackPressed();
+        }
     }
 }

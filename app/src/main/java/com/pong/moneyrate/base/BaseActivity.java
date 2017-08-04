@@ -38,6 +38,16 @@ public abstract class BaseActivity extends AppCompatActivity {
         ft.commit();
     }
 
+    protected void addFragment(Fragment fragment) {
+        Fragment oldFragment = getSupportFragmentManager().findFragmentById(R.id.container);
+
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.hide(oldFragment);
+        ft.add(R.id.container, fragment);
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+
     @Override
     public void onBackPressed() {
         if (!isTaskRoot()) {
