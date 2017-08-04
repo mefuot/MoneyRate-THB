@@ -9,11 +9,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
+import com.ogaclejapan.smarttablayout.utils.v4.Bundler;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 import com.pong.moneyrate.R;
 import com.pong.moneyrate.base.ToolbarFragment;
-import com.pong.moneyrate.feature.exchange.list.ExchangeListFragment;
+import com.pong.moneyrate.feature.exchange.chart.month.ExchangeChartMonthFragment;
 import com.pong.moneyrate.model.ExchangeDetail;
 import com.pong.moneyrate.utils.LogUtils;
 
@@ -94,11 +95,14 @@ public class ExchangeDetailFragment
     }
 
     private void setupViewPager() {
+        Bundle bundle = new Bundler().putString(ExchangeChartMonthFragment.CURRENCY_KEY,
+                mDetail.getCurrencyId()).get();
+
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getChildFragmentManager(), FragmentPagerItems.with(getActivity())
-                .add("Month", ExchangeListFragment.class)
-                .add("Quarter", ExchangeListFragment.class)
-                .add("Year", ExchangeListFragment.class)
+                .add("Month", ExchangeChartMonthFragment.class, new Bundler().putString("currency", "month").get())
+                .add("Quarter", ExchangeChartMonthFragment.class, new Bundler().putString("currency", "year").get())
+                .add("Year", ExchangeChartMonthFragment.class, new Bundler().putString("currency", "5year").get())
                 .create());
         mViewpagerExchangeDetail.setAdapter(adapter);
         mViewpagerTabExchangeDetail.setViewPager(mViewpagerExchangeDetail);
@@ -120,7 +124,7 @@ public class ExchangeDetailFragment
     }
 
     @Override
-    public void showQuarterExchangeRateChart() {
+    public void showFiveYearExchangeRateChart() {
 
     }
 
