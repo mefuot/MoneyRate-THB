@@ -1,5 +1,6 @@
 package com.pong.moneyrate.feature.exchange.detail;
 
+import com.pong.moneyrate.feature.exchange.chart.ChartType;
 import com.pong.mvp_structure.MvpContract;
 
 /**
@@ -16,6 +17,6 @@ public interface ExchangeDetailContract extends MvpContract {
     }
 
     interface Presenter extends MvpContract.Presenter<View> {
-
+        void selectedChart(@ChartType int charType);
     }
 }

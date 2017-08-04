@@ -78,6 +78,7 @@ dependencies {
     annotationProcessor 'org.parceler:parceler:1.1.6'
 
     compile 'com.ogaclejapan.smarttablayout:library:1.6.1'
+    compile 'com.ogaclejapan.smarttablayout:utils-v4:1.6.1'
 
     compile 'com.pong.library:mvp-structure:1.0.0@aar'
     compile 'com.pong.library:multi-layout:0.9.0'
