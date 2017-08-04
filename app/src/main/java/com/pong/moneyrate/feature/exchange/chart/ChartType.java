@@ -10,12 +10,12 @@ import java.lang.annotation.RetentionPolicy;
  */
 @IntDef(flag = true, value = {
         ChartType.MONTH,
-        ChartType.QUARTER,
-        ChartType.YEAR
+        ChartType.YEAR,
+        ChartType.FIVE_YEAR
 })
 @Retention(RetentionPolicy.SOURCE)
 public @interface ChartType {
     int MONTH = 0;
-    int QUARTER = 1;
-    int YEAR = 1 << 1;
+    int YEAR = 1;
+    int FIVE_YEAR = 1 << 1;
 }

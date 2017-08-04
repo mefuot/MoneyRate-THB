@@ -167,6 +167,7 @@
             android:id="@+id/viewpager_tab_exchange_detail"
             android:layout_width="match_parent"
             android:layout_height="48dp"
+            android:layout_alignParentBottom="true"
             app:stl_clickable="true"
             android:background="@color/gray"
             app:stl_defaultTabBackground="?attr/selectableItemBackground"
@@ -198,7 +199,7 @@
             android:id="@+id/viewpager_exchange_detail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/viewpager_tab_exchange_detail" />
+            android:layout_above="@id/viewpager_tab_exchange_detail" />
 
     </RelativeLayout>
 

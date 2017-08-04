@@ -25,11 +25,11 @@ public class ExchangeDetailPresenter
             case ChartType.MONTH:
                 getView().showMonthExchangeRateChart();
                 break;
-            case ChartType.QUARTER:
-                getView().showQuarterExchangeRateChart();
-                break;
             case ChartType.YEAR:
                 getView().showYearExchangeRateChart();
+                break;
+            case ChartType.FIVE_YEAR:
+                getView().showFiveYearExchangeRateChart();
                 break;
         }
     }

@@ -11,9 +11,9 @@ public interface ExchangeDetailContract extends MvpContract {
     interface View extends MvpContract.View {
         void showMonthExchangeRateChart();
 
-        void showQuarterExchangeRateChart();
-
         void showYearExchangeRateChart();
+
+        void showFiveYearExchangeRateChart();
     }
 
     interface Presenter extends MvpContract.Presenter<View> {
