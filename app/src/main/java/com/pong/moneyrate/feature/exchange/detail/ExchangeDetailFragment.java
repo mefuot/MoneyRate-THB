@@ -96,8 +96,9 @@ public class ExchangeDetailFragment
     private void setupViewPager() {
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getChildFragmentManager(), FragmentPagerItems.with(getActivity())
-                .add(R.string.app_name, ExchangeListFragment.class)
-                .add(R.string.app_name, ExchangeDetailFragment.class)
+                .add("Month", ExchangeListFragment.class)
+                .add("Quarter", ExchangeListFragment.class)
+                .add("Year", ExchangeListFragment.class)
                 .create());
         mViewpagerExchangeDetail.setAdapter(adapter);
         mViewpagerTabExchangeDetail.setViewPager(mViewpagerExchangeDetail);
@@ -125,6 +126,10 @@ public class ExchangeDetailFragment
 
     @Override
     public void showYearExchangeRateChart() {
+
+    }
+
+    private void swapChartFragment() {
 
     }
 }
